@@ -46,8 +46,9 @@ class EthereumAddress {
       final hashedPos = int.parse(hash[i], radix: 16);
       if ((hashedPos > 7 && address[i].toUpperCase() != address[i]) ||
           (hashedPos <= 7 && address[i].toLowerCase() != address[i])) {
+        var param = address[i];
         throw ArgumentError('Address has invalid case-characters and is'
-            'thus not EIP-55 conformant, rejecting. Address was: $hex');
+            'thus not EIP-55 conformant, rejecting. Address was: $hex, $hashedPos, $param, $i');
       }
     }
 
